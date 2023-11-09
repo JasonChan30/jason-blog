@@ -4,32 +4,30 @@ import { Icons } from "@/components/icons";
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
     SheetHeader,
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
 import * as React from 'react';
-import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarSeparator,
-    MenubarShortcut,
-    MenubarTrigger,
-} from "@/components/ui/menubar";
 import { Separator } from "@/components/ui/separator";
 
 
 const menu = [
     {
+        id : self.crypto.randomUUID(),
         categoryName : "Home"
     },
     {
+        id : self.crypto.randomUUID(),
         categoryName: "Sport",
     }
 ]
+const menuItems = menu.map((menuItem => {
+    return <>
+        <li key={menuItem.id}>{menuItem.categoryName}</li>
+        <Separator className="my-2"/>
+    </>;
+}))
 
 export default function Home() {
 
@@ -52,33 +50,9 @@ export default function Home() {
                                   </SheetTitle>
                               </SheetHeader>
                               <Separator className="my-4"/>
-                              <Menubar>
-                                  <MenubarMenu>
-                                      <MenubarTrigger>Home</MenubarTrigger>
-                                      <MenubarContent>
-                                          <MenubarItem>
-                                              New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                                          </MenubarItem>
-                                          <MenubarItem>New Window</MenubarItem>
-                                          <MenubarSeparator />
-                                          <MenubarItem>Share</MenubarItem>
-                                          <MenubarSeparator />
-                                          <MenubarItem>Print</MenubarItem>
-                                      </MenubarContent>
-
-                                      <MenubarTrigger>File</MenubarTrigger>
-                                      <MenubarContent>
-                                          <MenubarItem>
-                                              New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-                                          </MenubarItem>
-                                          <MenubarItem>New Window</MenubarItem>
-                                          <MenubarSeparator />
-                                          <MenubarItem>Share</MenubarItem>
-                                          <MenubarSeparator />
-                                          <MenubarItem>Print</MenubarItem>
-                                      </MenubarContent>
-                                  </MenubarMenu>
-                              </Menubar>
+                              <ul>
+                                  {menuItems}
+                              </ul>
                           </SheetContent>
                       </Sheet>
                   </header>
