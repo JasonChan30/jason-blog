@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/sheet'
 import { Separator } from '@/components/ui/separator';
 import {SidebarNav} from '@/components/sidebar-nav';
+import {UserAvatar} from '@/components/user-avatar';
 
 const sidebarNavItems = [
     {
@@ -51,9 +52,7 @@ export default function SiteHeader (){
                     </Sheet>
                 </div>
                 <div className="flex flex-row items-center justify-end w-6/12">
-                    <button className="bg-gradient-to-b from-zinc-700/30 to-zinc-950/90">
-                        hello
-                    </button>
+                    <UserAvatar/>
                 </div>
             </header>
            <Separator/>
