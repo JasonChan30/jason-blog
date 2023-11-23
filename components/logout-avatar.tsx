@@ -1,5 +1,6 @@
-import * as React from "react";
+"use client"
 
+import * as React from "react";
 import {
     Dialog,
     DialogContent,
@@ -9,6 +10,28 @@ import {
     DialogTrigger,
 } from '@/components/ui/dialog';
 import {Avatar} from '@/components/ui/avatar';
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
+import * as z from "zod";
+import validator from 'validator';
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+
+
+const loginFormSchema = z.object({
+    phone: z.string({required_error: "Phone is required",})
+        .refine((val) => validator.isMobilePhone(val,'zh-CN'), {
+            message: "Invalid phone format.",
+        }),
+    verificationCode:z.string({required_error: "Verification code is required",}).length(6,{
+        message: "Invalid verification code format.",
+    }),
+})
 
 export function LogoutAvatar (){
 
@@ -19,13 +42,24 @@ export function LogoutAvatar (){
                     <div>123</div>
                 </DialogTrigger>
                 <DialogContent>
-                    <DialogHeader>
+                    <DialogHeader className="items-center">
                         <DialogTitle>Sign with SMS</DialogTitle>
-                        <DialogDescription>
-                            This action cannot be undone. This will permanently delete your account
-                            and remove your data from our servers.
-                        </DialogDescription>
                     </DialogHeader>
+                    <div className="grid gap-4 py-4 justify-items-center">
+                        <div>
+                            <Select>
+                                <SelectTrigger className="w-[180px]">
+                                    <SelectValue placeholder="Theme" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="light">Light</SelectItem>
+                                    <SelectItem value="dark">Dark</SelectItem>
+                                    <SelectItem value="system">System</SelectItem>
+                                </SelectContent>
+                            </Select>
+
+                        </div>
+                    </div>
                 </DialogContent>
             </Dialog>
         </Avatar>
