@@ -26,27 +26,37 @@ const sidebarNavItems = [
 
 export default function SiteHeader (){
     return (
-        <header className="container flex flex-row h-14 items-center sticky top-0 z-50 w-full">
-            <Sheet>
-                <SheetTrigger asChild>
-                    <div className="flex flex-row items-center">
-                        <Icons.logo className="h-4 w-4 mr-2"/>
-                        <span className="mr-6 font-bold">Jason's Blog</span>
-                    </div>
-                </SheetTrigger>
-                <SheetContent side="left">
-                    <SheetHeader>
-                        <SheetTitle>
-                            <Icons.logo className="h-4 w-4 mr-2"/>
-                        </SheetTitle>
-                    </SheetHeader>
-                    <Separator className="my-2"/>
-                    <aside>
-                        <SidebarNav items={sidebarNavItems} />
-                    </aside>
-                   <SheetClose/>
-                </SheetContent>
-            </Sheet>
-        </header>
-    )
+        <>
+            <header className="container flex flex-row h-14 items-center sticky top-0 z-50 w-full">
+                <div className="flex flex-row items-center justify-start w-6/12">
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <div className="flex flex-row items-center">
+                                <Icons.logo className="h-4 w-4 mr-2"/>
+                                <span className="mr-6 font-bold">Jason's Blog</span>
+                            </div>
+                        </SheetTrigger>
+                        <SheetContent side="left">
+                            <SheetHeader>
+                                <SheetTitle>
+                                    <Icons.logo className="h-4 w-4 mr-2"/>
+                                </SheetTitle>
+                            </SheetHeader>
+                            <Separator className="my-2"/>
+                            <aside>
+                                <SidebarNav items={sidebarNavItems} />
+                            </aside>
+                            <SheetClose/>
+                        </SheetContent>
+                    </Sheet>
+                </div>
+                <div className="flex flex-row items-center justify-end w-6/12">
+                    <button className="bg-gradient-to-b from-zinc-700/30 to-zinc-950/90">
+                        hello
+                    </button>
+                </div>
+            </header>
+           <Separator/>
+        </>
+    );
 }
