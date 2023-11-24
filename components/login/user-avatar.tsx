@@ -1,8 +1,8 @@
 "use client"
 
 import * as React from 'react';
-import {LogoutAvatar} from '@/components/logout-avatar';
-import {LoginAvatar} from '@/components/login-avatar';
+import {LogoutAvatar} from '@/components/login/logout-avatar';
+import {LoginAvatar} from '@/components/login/login-avatar';
 
 export function UserAvatar (){
 

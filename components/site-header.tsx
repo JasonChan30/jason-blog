@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/sheet'
 import { Separator } from '@/components/ui/separator';
 import {SidebarNav} from '@/components/sidebar-nav';
-import {UserAvatar} from '@/components/user-avatar';
+import {UserAvatar} from '@/components/login/user-avatar';
 
 const sidebarNavItems = [
     {
