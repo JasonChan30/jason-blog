@@ -1,10 +1,8 @@
-
+"use client"
 
 import * as z from "zod";
-import validator from 'validator';
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-
 import { Button } from "@/components/ui/button"
 import {
     Form,
@@ -35,17 +33,25 @@ export function LoginForm () {
         console.log(values);
     }
 
+    function onSendValidationCode (){
+        console.log("sending validation code");
+    }
+
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
                 <FormField
                     control={form.control}
                     name="phone"
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <div>
-                                    <Input placeholder="Please input your phone" {...field} />
+                                <div className="flex">
+                                    <div className="flex basis-2/12 justify-start flex-wrap content-center">
+                                        <span>+86</span>
+                                    </div>
+                                    <Input className="border-none focus-visible:ring-0" placeholder="Please input your phone" {...field} />
+                                    <Button className="ml-2" type="button" onClick={()=>onSendValidationCode()}>Send</Button>
                                 </div>
                             </FormControl>
                             <FormMessage />
@@ -58,13 +64,20 @@ export function LoginForm () {
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input placeholder="Please input your verification code" {...field} />
+                                <div className="flex">
+                                    <div className="basis-2/12 flex justify-start flex-wrap content-center">
+                                        <span>Code</span>
+                                    </div>
+                                    <Input className="basis-13/12 border-none focus-visible:ring-0" placeholder="Please input your verification code" {...field} />
+                                </div>
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-                <Button type="submit">Submit</Button>
+                <div className="flex items-center justify-center">
+                    <Button type="submit">Submit</Button>
+                </div>
             </form>
         </Form>
     )
