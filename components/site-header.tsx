@@ -1,7 +1,7 @@
 'use client'
 
-import * as React from "react";
-import { Icons } from '@/components/icons';
+import * as React from "react"
+import { Icons } from '@/components/icons'
 import {
     Sheet,
     SheetContent,
@@ -10,9 +10,10 @@ import {
     SheetTrigger,
     SheetClose
 } from '@/components/ui/sheet'
-import { Separator } from '@/components/ui/separator';
-import {SidebarNav} from '@/components/sidebar-nav';
-import {UserAvatar} from '@/components/login/user-avatar';
+import { Separator } from '@/components/ui/separator'
+import {SidebarNav} from '@/components/sidebar-nav'
+import {UserAvatar} from '@/components/login/user-avatar'
+import {ThemeToggle} from '@/components/theme-toggle'
 
 const sidebarNavItems = [
     {
@@ -53,6 +54,7 @@ export default function SiteHeader (){
                 </div>
                 <div className="flex flex-row items-center justify-end w-6/12">
                     <UserAvatar/>
+                    <ThemeToggle/>
                 </div>
             </header>
            <Separator/>
