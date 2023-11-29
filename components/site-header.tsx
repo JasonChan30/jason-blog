@@ -52,7 +52,7 @@ export default function SiteHeader (){
                         </SheetContent>
                     </Sheet>
                 </div>
-                <div className="flex flex-row items-center justify-end w-6/12">
+                <div className="flex flex-row items-center justify-end w-6/12 space-x-2">
                     <UserAvatar/>
                     <ThemeToggle/>
                 </div>

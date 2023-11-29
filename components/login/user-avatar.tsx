@@ -11,7 +11,7 @@ export function UserAvatar (){
 
     return (
         <>
-            { login === 0 ? (<LogoutAvatar/>) : (<LoginAvatar/>)}
+            { login === 0 ? (<LogoutAvatar onLogin={()=>setLogin(1)}/>) : (<LoginAvatar onLogin={()=>setLogin(0)}/>)}
         </>
     )
 }

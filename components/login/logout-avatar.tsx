@@ -8,18 +8,20 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog';
-import {Avatar} from '@/components/ui/avatar';
+import {Avatar,AvatarImage,AvatarFallback} from '@/components/ui/avatar';
 import {LoginForm} from '@/components/login/login-form';
 import { Button } from "@/components/ui/button";
 import { Icons } from '@/components/icons';
 
-export function LogoutAvatar (){
+export function LogoutAvatar ({onLogin}){
 
     return (
-        <Avatar className="h-8 w-8">
             <Dialog>
                 <DialogTrigger>
-                    <div>123</div>
+                    <Avatar className="h-8 w-8">
+                        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                        <AvatarFallback>SC</AvatarFallback>
+                    </Avatar>
                 </DialogTrigger>
                 <DialogContent>
                     <DialogHeader className="items-center">
@@ -50,6 +52,6 @@ export function LogoutAvatar (){
                     </div>
                 </DialogContent>
             </Dialog>
-        </Avatar>
+
     );
 };
