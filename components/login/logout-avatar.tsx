@@ -8,18 +8,17 @@ import {
     DialogTitle,
     DialogTrigger,
 } from '@/components/ui/dialog';
-import {Avatar,AvatarImage,AvatarFallback} from '@/components/ui/avatar';
+import {Avatar,AvatarFallback} from '@/components/ui/avatar';
 import {LoginForm} from '@/components/login/login-form';
 import { Button } from "@/components/ui/button";
 import { Icons } from '@/components/icons';
 
-export function LogoutAvatar ({onLogin}){
+export function LogoutAvatar ({onLogin}:{onLogin:()=>void}){
 
     return (
             <Dialog>
                 <DialogTrigger>
                     <Avatar className="h-8 w-8">
-                        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
                         <AvatarFallback>SC</AvatarFallback>
                     </Avatar>
                 </DialogTrigger>
@@ -28,7 +27,7 @@ export function LogoutAvatar ({onLogin}){
                         <DialogTitle>Sign with SMS</DialogTitle>
                     </DialogHeader>
                     <div className="grid gap-4 py-4 justify-items-center">
-                        <LoginForm/>
+                        <LoginForm onLogin={onLogin}/>
                         <div className="relative w-full">
                             <div className="absolute inset-0 flex items-center">
                                 <span className="w-full border-t" />

@@ -20,7 +20,7 @@ const loginFormSchema = z.object({
     }),
 })
 
-export function LoginForm () {
+export function LoginForm ({onLogin}:{onLogin:()=>void}) {
     const form = useForm<z.infer<typeof loginFormSchema>>({
         resolver: zodResolver(loginFormSchema),
         defaultValues: {
@@ -31,6 +31,7 @@ export function LoginForm () {
 
     function onSubmit(values: z.infer<typeof loginFormSchema>){
         console.log(values);
+        onLogin();
     }
 
     function onSendValidationCode (){
