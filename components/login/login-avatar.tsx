@@ -15,7 +15,12 @@ const loginUser = {
     avatarUrl : "https://github.com/shadcn.png",
 }
 
-export function LoginAvatar ({onLogin}:{onLogin:()=>void}) {
+export function LoginAvatar ({toggleLoginState}:{toggleLoginState:()=>void}) {
+
+    function onLogoutBtnClick(){
+        toggleLoginState();
+    }
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger>
@@ -26,10 +31,9 @@ export function LoginAvatar ({onLogin}:{onLogin:()=>void}) {
             <DropdownMenuContent>
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem>Profile</DropdownMenuItem>
-                <DropdownMenuItem>Billing</DropdownMenuItem>
-                <DropdownMenuItem>Team</DropdownMenuItem>
-                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => onLogoutBtnClick()}>
+                    Logout
+                </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     )

@@ -34,7 +34,6 @@ export default function SiteHeader (){
                     <Sheet>
                         <SheetTrigger asChild>
                             <div className="flex flex-row items-center">
-                                <Icons.logo className="h-4 w-4 mr-2"/>
                                 <span className="mr-6 font-bold">Jason's Blog</span>
                             </div>
                         </SheetTrigger>

@@ -1,19 +1,19 @@
 "use client"
 
-import * as React from "react";
+import * as React from "react"
 import {
     Dialog,
     DialogContent,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from '@/components/ui/dialog';
-import {Avatar,AvatarFallback} from '@/components/ui/avatar';
-import {LoginForm} from '@/components/login/login-form';
-import { Button } from "@/components/ui/button";
-import { Icons } from '@/components/icons';
+} from '@/components/ui/dialog'
+import {Avatar,AvatarFallback} from '@/components/ui/avatar'
+import {LoginForm} from '@/components/login/login-form'
+import { Button } from "@/components/ui/button"
+import { Icons } from '@/components/icons'
 
-export function LogoutAvatar ({onLogin}:{onLogin:()=>void}){
+export function LogoutAvatar ({toggleLoginState}:{toggleLoginState:()=>void}){
 
     return (
             <Dialog>
@@ -27,7 +27,7 @@ export function LogoutAvatar ({onLogin}:{onLogin:()=>void}){
                         <DialogTitle>Sign with SMS</DialogTitle>
                     </DialogHeader>
                     <div className="grid gap-4 py-4 justify-items-center">
-                        <LoginForm onLogin={onLogin}/>
+                        <LoginForm toggleLoginState={toggleLoginState}/>
                         <div className="relative w-full">
                             <div className="absolute inset-0 flex items-center">
                                 <span className="w-full border-t" />
