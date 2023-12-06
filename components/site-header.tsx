@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from "react"
-import { Icons } from '@/components/icons'
 import {
     Sheet,
     SheetContent,
@@ -40,7 +39,7 @@ export default function SiteHeader (){
                         <SheetContent side="left">
                             <SheetHeader>
                                 <SheetTitle>
-                                    <Icons.logo className="h-4 w-4 mr-2"/>
+                                    123
                                 </SheetTitle>
                             </SheetHeader>
                             <Separator className="my-2"/>
