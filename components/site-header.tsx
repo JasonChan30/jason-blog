@@ -39,7 +39,7 @@ export default function SiteHeader (){
                         <SheetContent side="left">
                             <SheetHeader>
                                 <SheetTitle>
-                                    123
+                                    TODO: Logo
                                 </SheetTitle>
                             </SheetHeader>
                             <Separator className="my-2"/>
