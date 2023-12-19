@@ -62,11 +62,11 @@ export function ToDoList() {
                 <AccordionItem key={task.id} value={task.id}>
                     <AccordionTrigger>
                         <div className="flex flex-row w-full items-center">
-                            <p className="w-1/6 flex justify-start">
+                            <p className="basis-1/6 flex justify-start">
                                 {task.desc}
                             </p>
-                            <Progress value={33} />
-                            <p className={}>
+                            <Progress value={33} className="grow"/>
+                            <p className="basis-1/12">
                                 {33}%
                             </p>
                         </div>
