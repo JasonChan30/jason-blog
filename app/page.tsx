@@ -2,15 +2,13 @@
 
 import * as React from 'react';
 
-import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { ToDoList } from '@/components/todo-list'
+import { ToDoList } from '@/components/todo/todoList'
 
 export default function Home() {
 

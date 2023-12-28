@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { Accordion } from "@/components/ui/accordion"
-import { Feature } from "@/components/todo-list.feature"
+import { Todo } from "@/components/todo/todo"
 
 export enum TaskState {
     BUILD = "build",
@@ -62,11 +62,13 @@ const toDoListData : Task[] = [
     }
 ]
 
-export function ToDoList() {
+export const TodoList = function () {
     return (
         <Accordion type="single" collapsible className="w-full">
-            {toDoListData.map(task=>(
-                <Feature task={task}/>
+            {toDoListData.map(todo=>(
+                <div key={todo.id} value={todo.id}>
+                    <Todo task={todo}/>
+                </div>
             ))}
         </Accordion>
     )
