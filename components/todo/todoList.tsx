@@ -1,8 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { Accordion } from "@/components/ui/accordion"
-import { Todo } from "@/components/todo/todo"
+import { Accordion,AccordionItem } from "@/components/ui/accordion"
+import { Feature } from "@/components/todo/feature"
 
 export enum TaskState {
     BUILD = "build",
@@ -13,7 +13,7 @@ export type TaskData = {
     id: string,
     title: string,
     state: TaskState.BUILD | TaskState.FINISH,
-    subTask: TaskData[]
+    subTasks: TaskData[]
 }
 
 const toDoListData: TaskData[] = [
@@ -21,36 +21,36 @@ const toDoListData: TaskData[] = [
         id: crypto.randomUUID(),
         title: "build a blog",
         state: TaskState.BUILD,
-        subTask: [
+        subTasks: [
             {
                 id: crypto.randomUUID(),
                 title: "create a to-do list",
-                state: TaskState.BUILD,
-                subTask: []
+                state: TaskState.FINISH,
+                subTasks: []
             },
             {
                 id: crypto.randomUUID(),
                 title: "create a death-count-down clock",
                 state: TaskState.BUILD,
-                subTask: []
+                subTasks: []
             },
             {
                 id: crypto.randomUUID(),
                 title: "create a gym plan",
                 state: TaskState.BUILD,
-                subTask: []
+                subTasks: []
             },
             {
                 id: crypto.randomUUID(),
                 title: "create a live-share functionality",
                 state: TaskState.BUILD,
-                subTask: []
+                subTasks: []
             },
             {
                 id: crypto.randomUUID(),
                 title: "create a gather-experience functionality",
                 state: TaskState.BUILD,
-                subTask: []
+                subTasks: []
             }
         ]
     },
@@ -58,7 +58,7 @@ const toDoListData: TaskData[] = [
         id: crypto.randomUUID(),
         title: "travel around world",
         state: TaskState.BUILD,
-        subTask: []
+        subTasks: []
     }
 ]
 
@@ -67,7 +67,9 @@ export function ToDoList() {
         <Accordion type="single" collapsible className="w-full">
             {toDoListData.map(task => {
                 return (
-                    <Todo task={task} />
+                    <AccordionItem key={task.id} value={task.id}>
+                        <Feature  task={task}/>
+                    </AccordionItem>
                 )
             })}
         </Accordion>

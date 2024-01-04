@@ -1,17 +1,25 @@
 'use client'
 
 import * as React from 'react'
-import {Task, TaskState} from "@/components/todo/todoList"
-import {AccordionContent} from "@/components/ui/accordion"
 import { Checkbox } from "@/components/ui/checkbox"
+import { TaskData, TaskState } from "@/components/todo/todoList"
 
-export const SubTask = ({subTask, handleClickSubTaskCheckBox} : {subTask : Task, handleClickSubTaskCheckBox : (subTask : Task) => void}) => {
+interface SubTaskPros{
+    subTask : TaskData
+    handleSubTaskCheckBoxClick : () => void
+}
+
+export function SubTask ({subTask, handleSubTaskCheckBoxClick} : SubTaskPros){
+
     return (
-        <AccordionContent key={subTask.id}>
-            <div className="flex flex-row space-x-2 items-center justify-start">
-                <Checkbox checked={subTask.state === TaskState.FINISH} onCheckedChange={()=>handleClickSubTaskCheckBox(subTask)}/>
-                <div>{subTask.title}</div>
-            </div>
-        </AccordionContent>
+        <div className="flex flex-row space-x-2 items-center justify-start">
+            <Checkbox
+                checked={subTask.state === TaskState.FINISH}
+                onCheckedChange={handleSubTaskCheckBoxClick}
+            />
+            <div>{subTask.title}</div>
+        </div>
     );
+
+
 }
