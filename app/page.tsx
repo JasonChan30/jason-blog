@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 
-import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
@@ -10,20 +9,20 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { ToDoList } from '@/components/todo-list'
+import { ToDoList } from '@/components/todo/todoList'
 
 export default function Home() {
 
-  return <>
-      <div className="container mt-8">
-          <Card className="w-full">
-              <CardHeader>
-                  <CardTitle>TO-DO List</CardTitle>
-              </CardHeader>
-              <CardContent>
-                  <ToDoList/>
-              </CardContent>
-          </Card>
-      </div>
-  </>
+    return <>
+        <div className="container mt-8">
+            <Card className="w-full">
+                <CardHeader>
+                    <CardTitle>TO-DO List</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <ToDoList />
+                </CardContent>
+            </Card>
+        </div>
+    </>
 }
