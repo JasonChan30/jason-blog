@@ -28,7 +28,7 @@ const sidebarNavItems = [
 export default function SiteHeader (){
     return (
         <>
-            <header className="container flex flex-row h-14 items-center sticky top-0 z-50 w-full">
+            <header className="container flex flex-row h-14 items-center sticky top-0 z-50 w-full bg-white">
                 <div className="flex flex-row items-center justify-start w-6/12">
                     <Sheet>
                         <SheetTrigger asChild>

@@ -45,7 +45,7 @@ export function Feature({ task }: FeaturePros) {
         <>
             <AccordionTrigger>
                 <div className="flex flex-row w-full items-center">
-                    <p className="basis-1/6 flex justify-start">
+                    <p className="basis-1/6 flex justify-start text-left">
                         {task.title}
                     </p>
                     <Progress value={processRate} className="grow" />
