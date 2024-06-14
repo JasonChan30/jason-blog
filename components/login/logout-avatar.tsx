@@ -15,6 +15,10 @@ import { Icons } from '@/components/icons'
 
 export function LogoutAvatar ({toggleLoginState}:{toggleLoginState:()=>void}){
 
+    function onLoginWithGitHub () {
+        // window.location.href = "https://github.com/login/oauth/authorize?client_id=dad55f84b25a8e199b25";
+    }
+
     return (
             <Dialog>
                 <DialogTrigger>
@@ -39,7 +43,7 @@ export function LogoutAvatar ({toggleLoginState}:{toggleLoginState:()=>void}){
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-6">
-                            <Button variant="outline">
+                            <Button variant="outline" onClick={()=> onLoginWithGitHub()}>
                                 <Icons.gitHub className="mr-2 h-4 w-4" />
                                 Github
                             </Button>

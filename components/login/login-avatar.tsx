@@ -17,7 +17,7 @@ const loginUser = {
 
 export function LoginAvatar ({toggleLoginState}:{toggleLoginState:()=>void}) {
 
-    function onLogoutBtnClick(){
+    function onLogout(){
         toggleLoginState();
     }
 
@@ -31,7 +31,7 @@ export function LoginAvatar ({toggleLoginState}:{toggleLoginState:()=>void}) {
             <DropdownMenuContent>
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => onLogoutBtnClick()}>
+                <DropdownMenuItem onClick={() => onLogout()}>
                     Logout
                 </DropdownMenuItem>
             </DropdownMenuContent>

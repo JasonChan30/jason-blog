@@ -3,25 +3,42 @@
 import * as React from 'react';
 
 import {
-    Card,
-    CardContent,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { ToDoList } from '@/components/todo/todoList'
+    ResizableHandle,
+    ResizablePanel,
+    ResizablePanelGroup,
+} from "@/components/ui/resizable"
 
 export default function Home() {
 
     return <>
-        <div className="container mt-8">
-            <Card className="w-full">
-                <CardHeader>
-                    <CardTitle>TO-DO List</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <ToDoList />
-                </CardContent>
-            </Card>
-        </div>
+        <ResizablePanelGroup direction="horizontal">
+            <ResizablePanel>
+                left
+            </ResizablePanel>
+            <ResizableHandle />
+            <ResizablePanel>
+                <ResizablePanelGroup direction="vertical">
+                    <ResizablePanel>
+                        top
+                    </ResizablePanel>
+                    <ResizableHandle />
+                    <ResizablePanel>
+                        <ResizablePanelGroup direction="horizontal">
+                            <ResizablePanel>
+                                left
+                            </ResizablePanel>
+                            <ResizableHandle />
+                            <ResizablePanel>
+                                right
+                            </ResizablePanel>
+                        </ResizablePanelGroup>
+                    </ResizablePanel>
+                </ResizablePanelGroup>
+            </ResizablePanel>
+            <ResizableHandle />
+            <ResizablePanel>
+                right
+            </ResizablePanel>
+        </ResizablePanelGroup>
     </>
 }
