@@ -11,16 +11,16 @@ import Dictionary from '@/components/ui/dictionary/dictionary';
 
 export default function Home() {
 
-    return <>
+    return <div className="container my-2">
         <ResizablePanelGroup direction="horizontal">
-            <ResizablePanel>
+            <ResizablePanel defaultSize={20}>
                 <Dictionary/>
             </ResizablePanel>
             <ResizableHandle />
-            <ResizablePanel>
+            <ResizablePanel defaultSize={80}>
                 right
             </ResizablePanel>
             <ResizableHandle />
         </ResizablePanelGroup>
-    </>
+    </div>
 }
