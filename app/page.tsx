@@ -7,38 +7,20 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
 } from "@/components/ui/resizable"
+import Dictionary from '@/components/ui/dictionary/dictionary';
 
 export default function Home() {
 
     return <>
         <ResizablePanelGroup direction="horizontal">
             <ResizablePanel>
-                left
-            </ResizablePanel>
-            <ResizableHandle />
-            <ResizablePanel>
-                <ResizablePanelGroup direction="vertical">
-                    <ResizablePanel>
-                        top
-                    </ResizablePanel>
-                    <ResizableHandle />
-                    <ResizablePanel>
-                        <ResizablePanelGroup direction="horizontal">
-                            <ResizablePanel>
-                                left
-                            </ResizablePanel>
-                            <ResizableHandle />
-                            <ResizablePanel>
-                                right
-                            </ResizablePanel>
-                        </ResizablePanelGroup>
-                    </ResizablePanel>
-                </ResizablePanelGroup>
+                <Dictionary/>
             </ResizablePanel>
             <ResizableHandle />
             <ResizablePanel>
                 right
             </ResizablePanel>
+            <ResizableHandle />
         </ResizablePanelGroup>
     </>
 }
