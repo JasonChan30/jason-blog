@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react';
-import { ChevronDown } from "lucide-react"
+import { ChevronRight,ChevronDown } from "lucide-react"
 
 const data = [
     {
@@ -25,42 +25,25 @@ const data = [
 export default function Dictionary() {
 
     return <div className="w-full h-48 bg-amber-200 overflow-y-auto">
-        <div className="flex flex-row justify-between items-center">
-            A
-            <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+        <div className="my-1.5 mx-2">
+            <div className="flex flex-row justify-between items-center">
+                A
+                <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200"/>
+            </div>
         </div>
-
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
-        <div>A</div>
+        <div className="my-1.5 mx-2">
+            <div className="flex flex-row justify-between items-center">
+                B
+                <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200"/>
+            </div>
+            <ul className="border-l-2 pl-2">
+                <li>B</li>
+                <li>B</li>
+                <li>B</li>
+                <li>B</li>
+                <li>B</li>
+                <li>B</li>
+            </ul>
+        </div>
     </div>
 }
