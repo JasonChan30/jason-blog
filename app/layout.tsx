@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google'
-import '../styles/globals.css'
-import SideHeader from '@/components/site-header'
+import '@/styles/globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ['latin'] })
@@ -20,10 +19,7 @@ export default function RootLayout({children,}: {children: React.ReactNode }) {
             enableSystem
             disableTransitionOnChange
         >
-            <div>
-                <SideHeader/>
-                <div>{children}</div>
-            </div>
+            {children}
         </ThemeProvider>
         </body>
       </html>
