@@ -59,23 +59,18 @@ export default function Dictionary() {
     return <div className="w-full h-48 bg-amber-200 overflow-y-auto">
         {items.map((item,index) =>
             <div className="my-1.5 mx-2" key={"dictionaryItem-" + index}>
-                <div onClick={() => {
+                <Link href={item.href || ""} className="flex flex-row justify-between items-center" onClick={() => {
+                    if(itemState[index] === ItemState.Disable){
+                        return;
+                    }
                     const nextState = itemState[index] === ItemState.Fold ? ItemState.Expand : ItemState.Fold;
                     const newItemState = itemState.toSpliced(index, 1, nextState);
                     setItemState(newItemState);
                 }}>
-                    {itemState[index] === ItemState.Disable ?
-                        <Link href={item.href || ""}>{item.title}</Link> :
-
-                        <Link href={item.href || ""} className="flex flex-row justify-between items-center">
-                            {item.title}
-                            {itemState[index] === ItemState.Fold ?
-                                <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200"/> :
-                                <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200"/>
-                            }
-                        </Link>
-                    }
-                </div>
+                    {item.title}
+                    {itemState[index] === ItemState.Fold && <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200"/> }
+                    {itemState[index] === ItemState.Expand && <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200"/>}
+                </Link>
 
 
                 {itemState[index] === ItemState.Expand && (
