@@ -2,7 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table"
 
-import { MoreHorizontal } from "lucide-react"
+import { MoreHorizontal,ArrowUpDown } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -38,7 +38,31 @@ export const columns: ColumnDef<Task>[] = [
     },
     {
         accessorKey: "priority",
-        header: "Priority",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    Priority
+                    <ArrowUpDown className="ml-2 h-4 w-4" />
+                </Button>
+            )
+        },
+        sortingFn: (rowA, rowB, columnId) => {
+            const transToPriorityNumber = (priorityStr: string) => {
+                if(priorityStr === "High"){
+                    return 0;
+                }
+                if(priorityStr === "Medium"){
+                    return 1;
+                }
+                return 2;
+            }
+            const priorityA = transToPriorityNumber(rowA.original.priority);
+            const priorityB = transToPriorityNumber(rowB.original.priority);
+            return priorityA - priorityB;
+        },
     },
     {
         id: "actions",

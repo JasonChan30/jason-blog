@@ -7,6 +7,7 @@ import {
     getCoreRowModel,
     useReactTable,
     getPaginationRowModel,
+    getSortedRowModel,
 } from "@tanstack/react-table"
 import {
     Table,
@@ -16,7 +17,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import {DataTablePagination} from "@/app/log/task/component/data-table-pagination";
+import {DataTablePagination} from "@/app/log/task/component/data-table-pagination"
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -29,10 +30,17 @@ export function DataTable<TData, TValue>({columns, data,}: DataTableProps<TData,
         columns,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
+        getSortedRowModel: getSortedRowModel(),
         initialState: {
             pagination: {
                 pageSize: 5,
             },
+            sorting: [
+                {
+                    id: 'priority',
+                    desc : false,
+                },
+            ],
         },
     })
 
