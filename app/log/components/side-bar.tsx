@@ -52,13 +52,13 @@ enum ItemState {
     Disable
 }
 
-export default function Dictionary() {
+export default function SideBar() {
     const [itemState, setItemState] = React.useState<ItemState[]>(items.map(item => !!item.subItems ? ItemState.Fold : ItemState.Disable));
 
     // @ts-ignore
     return <div className="w-full h-48 bg-amber-200 overflow-y-auto">
         {items.map((item,index) =>
-            <div className="my-1.5 mx-2" key={"dictionaryItem-" + index}>
+            <div className="my-1.5 mx-2" key={"Item-" + index}>
                 <Link href={item.href || ""} className="flex flex-row justify-between items-center" onClick={() => {
                     if(itemState[index] === ItemState.Disable){
                         return;
@@ -78,7 +78,7 @@ export default function Dictionary() {
                         {
                             item.subItems?.map((subItem, subItemIndex) => (
                                 <Link href={subItem.href || ""} >
-                                    <li key={"dictionarySubItem-" + index + subItemIndex}>
+                                    <li key={"SubItem-" + index + subItemIndex}>
                                         {subItem.title}
                                     </li>
                                 </Link>
