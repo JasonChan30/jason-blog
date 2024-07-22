@@ -56,7 +56,7 @@ export default function SideBar() {
     const [itemState, setItemState] = React.useState<ItemState[]>(items.map(item => !!item.subItems ? ItemState.Fold : ItemState.Disable));
 
     // @ts-ignore
-    return <div className="w-full h-48 bg-amber-200 overflow-y-auto">
+    return <div className="w-full h-48 overflow-y-auto">
         {items.map((item,index) =>
             <div className="my-1.5 mx-2" key={"Item-" + index}>
                 <Link href={item.href || ""} className="flex flex-row justify-between items-center" onClick={() => {
