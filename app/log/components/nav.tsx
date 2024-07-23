@@ -10,6 +10,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import * as React from "react";
 
 export type NavLink = {
   title: string
@@ -24,6 +25,9 @@ interface NavProps {
 }
 
 export function Nav({ links, isCollapsed }: NavProps) {
+
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
   return (
     <div
       data-collapsed={isCollapsed}
@@ -37,11 +41,11 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 <Link
                   href="#"
                   className={cn(
-                    buttonVariants({ variant: link.variant, size: "icon" }),
-                    "h-9 w-9",
-                    link.variant === "default" &&
-                      "dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white"
+                    buttonVariants({ variant: index === selectedIndex ? "default" : "ghost", size: "icon" }),
                   )}
+                  onClick={()=>{
+                    setSelectedIndex(index);
+                  }}
                 >
                   <link.icon className="h-4 w-4" />
                   <span className="sr-only">{link.title}</span>
@@ -61,11 +65,12 @@ export function Nav({ links, isCollapsed }: NavProps) {
               key={index}
               href="#"
               className={cn(
-                buttonVariants({ variant: link.variant, size: "sm" }),
-                link.variant === "default" &&
-                  "dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white",
+                buttonVariants({ variant: index === selectedIndex ? "default" : "ghost", size: "sm" }),
                 "justify-start"
               )}
+              onClick={()=>{
+                setSelectedIndex(index);
+              }}
             >
               <link.icon className="mr-2 h-4 w-4" />
               {link.title}
@@ -73,7 +78,7 @@ export function Nav({ links, isCollapsed }: NavProps) {
                 <span
                   className={cn(
                     "ml-auto",
-                    link.variant === "default" &&
+                      index === selectedIndex &&
                       "text-background dark:text-white"
                   )}
                 >

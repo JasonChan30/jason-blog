@@ -22,13 +22,13 @@ const data : NavLink[] = [
         title: "Inbox",
         label: "128",
         icon: Inbox,
-        variant: "default",
+            variant: "default",
     },
     {
         title: "Drafts",
         label: "9",
         icon: File,
-        variant: "ghost",
+        variant: "default",
     },
     {
         title: "Sent",
