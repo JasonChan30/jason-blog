@@ -2,23 +2,27 @@
 
 import * as React from 'react';
 
-const groupTests : GroupListData[] = [
+const todoList : GroupedTodo[] = [
     {
-        category : "live",
-        list : [
+        category : "生活",
+        todoSummaries : [
             {
                 id : "1",
-                title : "Mold remove test",
+                title : "去霉菌",
             },
             {
                 id : "2",
-                title : "Make dry test",
+                title : "去湿度",
             },
+            {
+                id : "3",
+                title : "驱虫",
+            }
         ],
     },
     {
         category : "A",
-        list : [
+        todoSummaries : [
             {
                 id : "3",
                 title : "test1",
@@ -31,7 +35,7 @@ const groupTests : GroupListData[] = [
     },
     {
         category : "B",
-        list : [
+        todoSummaries : [
             {
                 id : "5",
                 title : "testA",
@@ -57,12 +61,12 @@ const groupTests : GroupListData[] = [
 
 ]
 
-type GroupListData = {
+type GroupedTodo = {
     category : string,
-    list : DataItem[]
+    todoSummaries : TodoSummary[]
 }
 
-type DataItem = {
+type TodoSummary = {
     id : string,
     title : string
 }
@@ -73,12 +77,12 @@ export default function Page() {
 
     return <div className="flex flex-row">
         <div className="relative w-1/4 overflow-y-auto flex flex-col gap-4 pr-4 h-[20rem]">
-            {groupTests.map((group, groupIndex) => (
+            {todoList.map((group, groupIndex) => (
                 <div className="flex flex-col gap-1 mb-2" key={groupIndex}>
                     <div className="sticky top-0 backdrop-blur-sm font-medium">
                         {group.category}
                     </div>
-                    {group.list.map((data)  => (
+                    {group.todoSummaries.map((data)  => (
                         <div aria-pressed={pressedId === data.id}
                              key={data.id}
                              className="flex items-center border p-3 text-left rounded-lg aria-pressed:bg-accent text-sm"
