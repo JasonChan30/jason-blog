@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react';
+import TodoProposal from "./component/todo-proposal"
 
 const todoList : GroupedTodo[] = [
     {
@@ -24,7 +25,7 @@ const todoList : GroupedTodo[] = [
         category : "A",
         todoSummaries : [
             {
-                id : "3",
+                id : "33",
                 title : "test1",
             },
             {
@@ -79,13 +80,13 @@ export default function Page() {
         <div className="relative w-1/4 overflow-y-auto flex flex-col gap-4 pr-4 h-[20rem]">
             {todoList.map((group, groupIndex) => (
                 <div className="flex flex-col gap-1 mb-2" key={groupIndex}>
-                    <div className="sticky top-0 backdrop-blur-sm font-medium">
+                    <div className="sticky top-0 backdrop-blur-sm font-bold">
                         {group.category}
                     </div>
                     {group.todoSummaries.map((data)  => (
                         <div aria-pressed={pressedId === data.id}
                              key={data.id}
-                             className="flex items-center border p-3 text-left rounded-lg aria-pressed:bg-accent text-sm"
+                             className="flex items-center border p-3 text-left rounded-lg aria-pressed:bg-accent text-xs font-medium"
                              onClick={()=>{
                                  setPressedId(data.id);
                              }
@@ -96,8 +97,8 @@ export default function Page() {
                 </div>
             ))}
         </div>
-        <div className="border-l-2 pl-4">
-            qwe
+        <div className="border-l-2 pl-4 w-3/4">
+            <TodoProposal todoId={pressedId}/>
         </div>
     </div>
 }
