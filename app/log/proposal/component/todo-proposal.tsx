@@ -84,7 +84,7 @@ export default function TodoProposal({ todoId }:  TodoProposal) {
         <h1 className="text-4xl font-bold text-slate-900 border-b-2 pb-2">{proposal.title}</h1>
         <div className="flex flex-col gap-2 mt-2">
             {todoProposal.actions.map(action =>
-                <div data-status={action.status} className="w-fit px-1 border-2 rounded-lg data-[status=init]:bg-blue-200 data-[status=finish]:bg-green-200 data-[status=abort]:bg-red-200">
+                <div data-status={action.status} className="w-fit px-1 rounded-lg data-[status=init]:bg-blue-200 data-[status=finish]:bg-green-200 data-[status=abort]:bg-red-200">
                     {action.title}
                 </div>
             )}
